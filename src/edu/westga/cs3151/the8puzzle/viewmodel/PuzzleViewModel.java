@@ -143,8 +143,10 @@ public class PuzzleViewModel {
 	 * @post all tiles of this board are in the correct position
 	 */
 	public void solve() {
-		Deque<Board> moveTiles = this.solver.bfsSolveAlogrithm(this.board);
-		Queue<Move> moves = this.solver.findMoves(moveTiles);
+		Deque<Board> moveTiles = new LinkedList<Board>();
+		Queue<Move> moves = new LinkedList<Move>();
+		moveTiles = this.solver.bfsSolveAlogrithm(this.board);
+		moves = this.solver.findMoves(moveTiles);
 		this.traceMoves(moves);
 		
 	}
